@@ -31,8 +31,8 @@ namespace empleados.Models
 
         [Display(Name = "Fecha de contratacion del empleado")]
         [Required(ErrorMessage = "Ingrese Fecha de contratacion del empleado")]
-        //[DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = false)]
         public DateTime FechaContratacion { get; set; }
 
 

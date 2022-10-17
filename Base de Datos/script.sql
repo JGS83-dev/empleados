@@ -6,8 +6,8 @@ create table empleados(
 id_empleado int identity(1,1) primary key,
 nombre varchar(100) not null,
 apellido varchar(100) not null,
-telefono varchar(25) not null,
-correo varchar(100) not null,
+telefono varchar(25) unique not null,
+correo varchar(100) unique not null,
 fecha_contratacion date not null)
 
 create table foto_empleado(
