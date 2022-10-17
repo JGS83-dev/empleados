@@ -20,6 +20,6 @@ namespace empleados.Models
         public string Foto { get; set; } = null!;
 
         [Display(Name = "Empleado")]
-        public virtual Empleado IdUsuarioNavigation { get; set; } = null!;
+        public virtual Empleado? IdUsuarioNavigation { get; set; }
     }
 }
