@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -10,7 +9,6 @@ namespace empleados.Models
     {
         public registro_empleadosContext()
         {
-
         }
 
         public registro_empleadosContext(DbContextOptions<registro_empleadosContext> options)
@@ -23,9 +21,9 @@ namespace empleados.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
             if (!optionsBuilder.IsConfigured)
             {
+
                 optionsBuilder.UseSqlServer("Server=DESKTOP-LKEOE3R; Database=registro_empleados; User=sa; Password=123456;");
             }
         }
@@ -69,16 +67,18 @@ namespace empleados.Models
             modelBuilder.Entity<FotoEmpleado>(entity =>
             {
                 entity.HasKey(e => e.IdFoto)
-                    .HasName("PK__foto_emp__620EA3A52774000A");
+                    .HasName("PK__foto_emp__620EA3A50C7F2C98");
 
                 entity.ToTable("foto_empleado");
 
-                entity.HasIndex(e => e.IdUsuario, "UQ__foto_emp__4E3E04ACAB788E49")
+                entity.HasIndex(e => e.IdUsuario, "UQ__foto_emp__4E3E04ACF89A54ED")
                     .IsUnique();
 
                 entity.Property(e => e.IdFoto).HasColumnName("id_foto");
 
-                entity.Property(e => e.Foto).HasColumnName("foto");
+                entity.Property(e => e.Foto)
+                    .IsUnicode(false)
+                    .HasColumnName("foto");
 
                 entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
 
@@ -86,7 +86,7 @@ namespace empleados.Models
                     .WithOne(p => p.FotoEmpleado)
                     .HasForeignKey<FotoEmpleado>(d => d.IdUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__foto_empl__id_us__31EC6D26");
+                    .HasConstraintName("FK__foto_empl__id_us__35BCFE0A");
             });
 
             OnModelCreatingPartial(modelBuilder);

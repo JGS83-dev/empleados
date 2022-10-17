@@ -5,6 +5,7 @@ using System.Xml.Linq;
 
 namespace empleados.Models
 {
+
     public partial class FotoEmpleado
     {
         public int IdFoto { get; set; }
@@ -14,10 +15,11 @@ namespace empleados.Models
         public int IdUsuario { get; set; }
 
         [Display(Name = "Foto del empleado")]
-        [Required(ErrorMessage = "Ingrese foto del empleado")]
-        [DataType(DataType.Upload)]
-        public byte[] Foto { get; set; } = null!;
+        [Required(ErrorMessage = "Ingrese URL de foto del empleado")]
+        [DataType(DataType.Url)]
+        public string Foto { get; set; } = null!;
 
+        [Display(Name = "Empleado")]
         public virtual Empleado IdUsuarioNavigation { get; set; } = null!;
     }
 }

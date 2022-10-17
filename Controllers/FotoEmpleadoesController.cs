@@ -9,23 +9,23 @@ using empleados.Models;
 
 namespace empleados.Controllers
 {
-    public class FotoEmpleadosController : Controller
+    public class FotoEmpleadoesController : Controller
     {
         private readonly registro_empleadosContext _context;
 
-        public FotoEmpleadosController(registro_empleadosContext context)
+        public FotoEmpleadoesController(registro_empleadosContext context)
         {
             _context = context;
         }
 
-        // GET: FotoEmpleados
+        // GET: FotoEmpleadoes
         public async Task<IActionResult> Index()
         {
             var registro_empleadosContext = _context.FotoEmpleados.Include(f => f.IdUsuarioNavigation);
             return View(await registro_empleadosContext.ToListAsync());
         }
 
-        // GET: FotoEmpleados/Details/5
+        // GET: FotoEmpleadoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.FotoEmpleados == null)
@@ -44,14 +44,14 @@ namespace empleados.Controllers
             return View(fotoEmpleado);
         }
 
-        // GET: FotoEmpleados/Create
+        // GET: FotoEmpleadoes/Create
         public IActionResult Create()
         {
             ViewData["IdUsuario"] = new SelectList(_context.Empleados, "IdEmpleado", "Apellido");
             return View();
         }
 
-        // POST: FotoEmpleados/Create
+        // POST: FotoEmpleadoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -68,7 +68,7 @@ namespace empleados.Controllers
             return View(fotoEmpleado);
         }
 
-        // GET: FotoEmpleados/Edit/5
+        // GET: FotoEmpleadoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.FotoEmpleados == null)
@@ -85,7 +85,7 @@ namespace empleados.Controllers
             return View(fotoEmpleado);
         }
 
-        // POST: FotoEmpleados/Edit/5
+        // POST: FotoEmpleadoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -121,7 +121,7 @@ namespace empleados.Controllers
             return View(fotoEmpleado);
         }
 
-        // GET: FotoEmpleados/Delete/5
+        // GET: FotoEmpleadoes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.FotoEmpleados == null)
@@ -140,7 +140,7 @@ namespace empleados.Controllers
             return View(fotoEmpleado);
         }
 
-        // POST: FotoEmpleados/Delete/5
+        // POST: FotoEmpleadoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

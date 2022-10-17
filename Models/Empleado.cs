@@ -31,9 +31,10 @@ namespace empleados.Models
 
         [Display(Name = "Fecha de contratacion del empleado")]
         [Required(ErrorMessage = "Ingrese Fecha de contratacion del empleado")]
-        //Aqui se puede aplicar un singleton para el formato de fecha de forma global
-        [DisplayFormat(DataFormatString = "{0:0:MM/dd/yyyy}", ApplyFormatInEditMode= true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime FechaContratacion { get; set; }
+
 
         public virtual FotoEmpleado? FotoEmpleado { get; set; }
     }
