@@ -5,4 +5,5 @@
 # Entity Framework 6
 # Entity Framework Core
 # Database First
- 
+# Configurar en registro_empleadosContext.cs
+#    Conexion a BDD
