@@ -8,10 +8,9 @@ namespace empleados.Models
 {
     public partial class registro_empleadosContext : DbContext
     {
-        private readonly IConfiguration Configuration;
-        public registro_empleadosContext(IConfiguration configuration)
+        public registro_empleadosContext()
         {
-            Configuration = configuration;
+
         }
 
         public registro_empleadosContext(DbContextOptions<registro_empleadosContext> options)
@@ -24,10 +23,10 @@ namespace empleados.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var dbConnection = Configuration["ConnectionStrings:DatabaseContext"];
+
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(dbConnection.ToString());
+                optionsBuilder.UseSqlServer("Server=DESKTOP-LKEOE3R; Database=registro_empleados; User=sa; Password=123456;");
             }
         }
 

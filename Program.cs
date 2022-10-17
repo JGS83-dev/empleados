@@ -1,7 +1,13 @@
+using empleados.Models;
+using System.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Inyeccion del contexto
+builder.Services.AddDbContext<registro_empleadosContext>();
 
 var app = builder.Build();
 
@@ -19,9 +25,5 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
