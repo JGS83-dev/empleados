@@ -35,9 +35,6 @@ namespace empleados.Models
         [DisplayFormat(DataFormatString = "{0:0:MM/dd/yyyy}", ApplyFormatInEditMode= true)]
         public DateTime FechaContratacion { get; set; }
 
-        [Display(Name = "Foto del empleado")]
-        [Required(ErrorMessage = "Ingrese foto del empleado")]
-        [DataType(DataType.Upload)]
         public virtual FotoEmpleado? FotoEmpleado { get; set; }
     }
 }
