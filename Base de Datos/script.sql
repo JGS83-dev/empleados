@@ -13,4 +13,4 @@ fecha_contratacion date not null)
 create table foto_empleado(
 id_foto int identity(1,1) primary key,
 id_usuario int foreign key references empleados(id_empleado) unique not null,
-foto varbinary(max) not null)
+foto varchar(max) not null)
